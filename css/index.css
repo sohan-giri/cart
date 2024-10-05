@@ -1,0 +1,388 @@
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Fixed height for image consistency */
+    object-fit: cover;
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Add padding to prevent content from overflowing */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 10; /* Ensure it appears on top of the image */
+}
+
+.product-card:hover .hover-content {
+    opacity: 1;
+}
+
+.hover-content button {
+    background-color: #fff;
+    border: none;
+    padding: 8px 16px; /* Reduced button padding */
+    font-size: 14px;    /* Slightly smaller button text */
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.hover-content .icons {
+    display: flex;
+    gap: 10px; /* Reduced gap between icons */
+    font-size: 16px; /* Smaller icons */
+    padding: 5px; /* Add padding to ensure icons stay within bounds */
+}
+
+.hover-content .icons a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.hover-content .icons a i {
+    margin-right: 3px; /* Smaller space between icon and text */
+}
+
+.card-body .badge {
+    z-index: 1; /* Ensure the badge appears over the image */
+    font-size: 0.7rem; /* Adjust font size of badge */
+}
+
+.carousel-img {
+    height: 600px; /* Set the height you want */
+    object-fit: cover; /* Ensures the image scales and fits properly */
+}
+
+
+  /* Custom CSS for Sidebar */
+  .cart-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    max-width: 80vw;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    z-index: 1050;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  .cart-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .quantity-btn {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .quantity {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+
+/* Default styling for the alert message (desktop and tablet) */
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  background-color: #a2fdd9;
+  color: #000000;
+  padding: 15px 30px;
+  border-radius: 5px;
+  display: none;
+  font-size: 1rem;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 576px) {
+  .alert {
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      max-width: 100%;
+      border-radius: 4px;
+  }
+}
+
+
+  .empty-cart-image {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 15px;
+  }
+
+  #empty-cart-message {
+    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  .cart-footer.hidden {
+    display: none !important;
+  }
+/* Ensure icons are the same size and aligned */
+.nav-icon {
+  font-size: 1.4rem; /* Uniform size for all icons */
+  color: #333; /* Default color for icons */
+  margin-right: 20px; /* Increased space between icons */
+  position: relative; /* Make it a reference point for the badge */
+  transition: color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+#cartIcon, #wishlistIcon {
+  padding: 0; /* Remove padding */
+  border: none !important; /* Ensure no border */
+  background: none; /* Transparent background */
+  cursor: pointer; /* Make it clickable */
+  outline: none !important; /* Remove outline if it's showing on focus */
+  box-shadow: none !important; /* Remove any box-shadow that may appear */
+  position: relative; /* Relative positioning for badge alignment */
+}
+
+#cartIcon i, #wishlistIcon i {
+  font-size: 1.4rem; /* Same size for all icons */
+  color: #333; /* Same color for all icons */
+}
+
+/* Align the cart and wishlist badges correctly */
+#cart-count, #wishlist-count {
+  position: absolute; /* Absolutely position the badge relative to the icon */
+  top: -5px; /* Adjust the top position */
+  right: -10px; /* Adjust the right position */
+  font-size: 0.6rem; /* Ensure readable badge text */
+  padding: 3px 6px; /* Adjust padding for a smaller badge */
+  border-radius: 50%; /* Circular badge */
+  background-color: red; /* Add background color for visibility */
+  color: white; /* Ensure text color contrasts with the background */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .nav-icon {
+    margin-right: 10px; /* Slightly smaller margin for smaller screens */
+    font-size: 1.3rem; /* Slightly smaller icons */
+  }
+
+  #cart-count, #wishlist-count {
+    font-size: 0.55rem; /* Slightly smaller badges on mobile */
+    top: -3px; /* Adjust for smaller screens */
+    right: -8px; /* Adjust for smaller screens */
+  }
+  
+}
+
+/* Navbar link hover effects */
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff; /* Link color change on hover */
+}
+
+#searchBarContainer {
+  transition: all 0.3s ease;
+}
+
+#searchBar {
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+#searchBar:focus {
+  width: 300px; /* Expands the search bar when focused */
+}
+
+/* Wishlist Sidebar */
+.wishlist-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    max-width: 80vw;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    z-index: 1050;
+    overflow-y: auto;
+}
+
+.wishlist-sidebar.show {
+    transform: translateX(0);
+}
+
+.empty-wishlist-image {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 15px;
+}
+
+#empty-wishlist-message {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.wishlist-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.wishlist-footer.hidden {
+    display: none !important;
+}
+
+/* Button 1: Background color #B88E2F and white text */
+#clearCart {
+  background-color: #B88E2F;
+  color: white;
+  border-radius: 12px; /* Adjust for more or less roundness */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#clearCart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button 2: White background and text color #B88E2F */
+#checkout {
+  background-color: white;
+  color: #B88E2F;
+  border-radius: 12px; /* Adjust for more or less roundness */
+  border: 2px solid #B88E2F;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#checkout:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button 1: Background color #B88E2F and white text for Clear Wishlist */
+#clearWishlist {
+  background-color: #B88E2F;
+  color: white;
+  border-radius: 12px; /* Adjust for more or less roundness */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#clearWishlist:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button 2: White background and text color #B88E2F for Move All to Cart */
+#moveAllToCart {
+  background-color: white;
+  color: #B88E2F;
+  border-radius: 12px; /* Adjust for more or less roundness */
+  border: 2px solid #B88E2F;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#moveAllToCart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Increment Button: Background color #B88E2F and white text */
+.quantity-btn {
+  background-color: #B88E2F;
+  color: white;
+  border-radius: 8px; /* Adjust for more or less roundness */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quantity-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Delete Button: White background and text color #B88E2F */
+.btn-danger {
+  background-color: white;
+  color: #B88E2F;
+  border-radius: 8px; /* Adjust for more or less roundness */
+  border: 2px solid #B88E2F;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Remove from Wishlist Button: White background and text color #B88E2F */
+.btn-danger {
+  background-color: white;
+  color: #B88E2F;
+  border-radius: 8px; /* Adjust for more or less roundness */
+  border: 2px solid #B88E2F;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Move to Cart Button: Background color #B88E2F and white text */
+.btn-primary {
+  background-color: #B88E2F;
+  color: white;
+  border-radius: 8px; /* Adjust for more or less roundness */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
